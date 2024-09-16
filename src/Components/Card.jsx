@@ -1,30 +1,29 @@
-import React from 'react';
+import React from "react"; 
 
 function Card(){
-
     let data = [
-        {image: 'https://images.unsplash.com/photo-1658842042844-eeb5ad17b7d3?q=80&w=1858&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', name: "Mindset.", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. In eius ab necessitatibus consequuntur adipisci suscipit.", instock: false},
-        {image: 'https://images.unsplash.com/photo-1663868652516-dabef3845d29?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', name: "Tom Hanks.", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. In eius ab necessitatibus consequuntur adipisci suscipit.", insstock: false},
-        {image: 'https://images.unsplash.com/photo-1624979393459-37e156d6ebce?q=80&w=1958&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', name: "Wanted.", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. In eius ab necessitatibus consequuntur adipisci suscipit.", instock: true},
+        { Image:"https://i1.sndcdn.com/artworks-hAiTfsOSiHL4nIM1-LHNs3Q-t500x500.jpg", song: "Wanna be yours", discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ducimus."},
+        { Image:"https://i.scdn.co/image/ab67616d0000b273b40f953d9ebdc956544e28a5", song: "Lover", discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ducimus."},
+        { Image:"https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Ed_Sheeran_Perfect_Single_cover.jpg/220px-Ed_Sheeran_Perfect_Single_cover.jpg", song: "Perfect", discription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ducimus."},
     ];
 
+    let downloadHandling = ()=> {alert("downloading...");}
     return(
-        <div className='w-full h-screen flex items-center justify-center gap-10 bg-zinc-200'>
-            {data.map((elem,index)=>(
-                <div key={index} className='w-64 bg-zinc-100 rounded-lg overflow-hidden'>
-            <div className='w-full h-44 bg-zinc-300'>
-                <img className='w-full h-full object-cover' src={elem.image} alt="" />
-            </div>
-            <div className='px-4 py-4'>
-                <h2 className='mt-4 text-lg font-semibold'>{elem.name}</h2>
-                <p className='mt-2 text-xs'>{elem.description}</p>
-                <button className={`px-4 py-1 text-white mt-4 ${elem.instock ? "bg-blue-600" : "bg-red-600"} rounded text-xs`}>
-                    {elem.instock ? "In Stock" : "Out Of Stock"}
-                </button>
-            </div>
+        <div className="w-full h-screen bg-zinc-800 flex flex-col items-center justify-center gap-4">
+            {data.map((elem, index) =>(
+                <div key={index} className="px-2 py-2 w-96 h-32 bg-zinc-300 rounded-md flex gap-4"> 
+                 <div className="ImgContainer h-full w-28 bg-green-200 rounded-md">
+                    <img className="rounded-md" src={elem.Image} alt="" />
+                 </div>
+                <div className="SongName w-56 h-6 px-2 text-xm font-semibold">
+                    <h4>{elem.song}</h4>
+                    <p className="text-xs mt-1 text-xs">{elem.discription}</p>
+                    <button onClick={downloadHandling} className="px-2 py-1 bg-green-600 rounded-sm text-xs text-zinc-100 font-semibold mt-2">Download Now</button>
+                </div>
             </div>
             ))}
         </div>
-    );
+    )
 }
+
 export default Card;
