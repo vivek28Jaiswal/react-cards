@@ -1,11 +1,13 @@
 import React from 'react';
 import Card from './Components/Card';
+import Practice from './Components/Practice';
 
 function App(){
 
     return(
         <div>
-            <Card/>
+            {/* <Card/> */}
+            <Practice/>
         </div>
     );
 }
