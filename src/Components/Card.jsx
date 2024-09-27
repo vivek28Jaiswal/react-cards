@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Card = ({name, profession, img}) => {
+const Card = ({Values}) => {
+  const {name, img, profession, salary} = Values;
   return (
     <div className='w-64 bg-zinc-200 rounded-md'>
         <div className='w-full h-48'>
@@ -8,9 +9,10 @@ const Card = ({name, profession, img}) => {
         </div>
         <div className='w-full p-2'>
         <h4 className='text-sm font-semibold capitalize'>{name}</h4>
-        <h5 className='text-xs capitalize'>{profession}</h5>
+        <h5 className='text-xs capitalize mt-2'>{profession}</h5>
+        <h4 className='text-sm opacity-[.8]'>{salary}</h4>
         <div>
-        <button className='px-4 py-1 bg-blue-500 text-white text-xs mt-2 rounded-md'>Connect</button>
+        <button onClick={()=>alert()} className='px-5 py-1 bg-blue-500 text-white text-xs mt-2 rounded-md font-semibold'>Connect</button>
         </div>
         </div>
     </div>
