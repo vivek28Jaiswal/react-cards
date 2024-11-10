@@ -3,30 +3,30 @@ import Card from './Components/Card';
 import Practice from './Components/Practice';
 import Trail from './Components/Trail';
 import Button from './Components/Button';
+import Navbar from './Components/Navbar';
 
 function App(){
-    let dets = [
-        {name: 'yami Light', profession: 'actross', salary: '$1200', img: "https://plus.unsplash.com/premium_photo-1669951867704-a78fd21fbbd2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", friends: false},
-        {name: 'Riwick json', profession: 'coder', salary: '$1400', img: "https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", friends: false},
-        {name: 'Jhonathan parl', profession: 'gamer', salary: '$1000', img: "https://images.unsplash.com/photo-1517012021249-a130aa959065?q=80&w=2009&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", friends: false},
-    ]
-    const [data, Setdata] =  useState(dets)
-    const handlingEvent = (changingIndex) => {
-        Setdata((prev) => {
-            return prev.map((item, index) =>{
-                if(index === changingIndex) return {...item, friends: !item.friends};
-                return item;
-            })
-        })
-    }
-    return(
-        <div className='w-full h-screen bg-zinc-400 flex items-center justify-center gap-4'>
-            {data.map((item, index)=>(
-                <Card key={index} Values={item} handlingEvent={handlingEvent} index={index}/>
 
-                // there are two way to send data or pass data in card component
-                // <Card key={index} name={item.name} profession={item.profession} img={item.img}/>
-            ))}
+    const data = [
+        { img:"https://plus.unsplash.com/premium_photo-1708589336871-a0a2bf57c696?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3BvdGlmeSUyMG11c2ljJTIwOTBzJTIwYm9sbHl3b29kfGVufDB8fDB8fHww", name: "Dark Side", artish: "BegPain", added: false},
+        { img:"https://plus.unsplash.com/premium_photo-1708194041635-8e503d8c09fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDU5fHx8ZW58MHx8fHx8", name: "Lovers", artish: "Taylor S.", added: false},
+        { img:"https://c.saavncdn.com/304/First-Class-Hits-of-Varun-Dhawan-Hindi-2023-20230721135400-500x500.jpg", name: "fallen on you", artish: "Gwen Swocks", added: true},
+    ];
+
+    const [songData, SetsongData]= useState(data); 
+    const handleClick = (index) =>{
+        alert(index);
+    }
+
+    return(
+        <div className='w-full h-screen bg-zinc-200'>
+            <Navbar/>
+            <div className='px-20 flex gap-5 flex-wrap'>
+                {songData.map((obj, index)=>{
+                    return <Card data={obj} handleClick={handleClick} index={index} key={index}/>;
+                })}
+            </div>
+
         </div>
     );
 }
