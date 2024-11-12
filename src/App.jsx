@@ -15,12 +15,18 @@ function App(){
 
     const [songData, SetsongData]= useState(data); 
     const handleClick = (index) =>{
-        alert(index);
+        SetsongData((prev) =>{
+            return prev.map((item, itemIndex)=>{
+                if(index === itemIndex) return{ ...item , added: !item.added};
+                return item;
+            })
+        }
+    )
     }
 
     return(
         <div className='w-full h-screen bg-zinc-200'>
-            <Navbar/>
+            <Navbar data={songData} />
             <div className='px-20 flex gap-5 flex-wrap'>
                 {songData.map((obj, index)=>{
                     return <Card data={obj} handleClick={handleClick} index={index} key={index}/>;
